@@ -9,3 +9,32 @@ class ClienteAdmin(admin.ModelAdmin):
 
 class ProductoInline(admin.TabularInline):
     model = Producto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+admin.site.register(Cliente,ClienteAdmin)
+admin.site.register(Categoria)
+admin.site.register(Proveedor)
+admin.site.register(Producto,)
+admin.site.register(Direccion)
+admin.site.register(Detalle)
+admin.site.register(Venta)
