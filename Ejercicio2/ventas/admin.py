@@ -15,13 +15,22 @@ class ProveedorAdmin(admin.ModelAdmin):
     list_filter = ['rut','nombre']
     inlines = [ProductoInline,]
 
+class VentaAdmin(admin.ModelAdmin):
+    list_display = ('id','cliente','descuento')
+    actions = ['cambiar_descuento',]
+
+    def cambiar_descuento (self, request, queryset):
+        if Venta.descuento == False:
+            return queryset.update(descuento=True)
+        
+        
 
 
 
 admin.site.register(Cliente,ClienteAdmin)
 admin.site.register(Categoria)
-admin.site.register(Proveedor)
+admin.site.register(Proveedor,ProveedorAdmin)
 admin.site.register(Producto,)
 admin.site.register(Direccion)
-admin.site.register(Detalle)
-admin.site.register(Venta)
+admin.site.register(Detalle,)
+admin.site.register(Venta,VentaAdmin)
