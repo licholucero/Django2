@@ -15,12 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.Ejercicio2.urls import url, include
-from django.Ejercicio2 import settings
-from django.Ejercicio2.urls.static import static 
 
-
-rlpatterns = [
-    url(r'^jet/', include('jet.urls', 'jet')),  # JET URLS
-    url(r'', admin.site.urls), # admin site
+urlpatterns = [
+    path('admin/', admin.site.urls),
 ]
