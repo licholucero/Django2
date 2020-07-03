@@ -10,23 +10,10 @@ class ClienteAdmin(admin.ModelAdmin):
 class ProductoInline(admin.TabularInline):
     model = Producto
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+class ProveedorAdmin(admin.ModelAdmin):
+    list_display = ['rut','nombre','telefono','web']
+    list_filter = ['rut','nombre']
+    inlines = [ProductoInline,]
 
 
 
