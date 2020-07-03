@@ -24,3 +24,20 @@ class Proveedor(models.Model):
     web = models.CharField(max_length=40)
     def __str__(self):
         return '{}'.format(self.nombre)
+
+class Producto(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=25)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
+    precio = models.IntegerField()
+    stock = models.IntegerField()
+    def __str__(self):
+        return '{}'.format(self.nombre)
+
+class Detalle(models.Model):
+    id = models.AutoField(primary_key=True)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
+    def __str__(self):
+        return '{}'.format(self.producto)
