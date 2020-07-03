@@ -59,3 +59,4 @@ class Venta(models.Model):
     descuento = models.BooleanField()
     def __str__(self):
         return '{}'.format(self.id)
+ 
